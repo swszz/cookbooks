@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component
 class OrderPersistenceAdapter(val orderRepository: OrderRepository) : SaveOrderPort {
     override fun save(saveOrderCommand: SaveOrderCommand): Boolean {
         val order = saveOrderCommand.let {
-            Order()
+            Order(type = it.type, size = it.size, count = it.count)
         }
         orderRepository.save(order)
         return true

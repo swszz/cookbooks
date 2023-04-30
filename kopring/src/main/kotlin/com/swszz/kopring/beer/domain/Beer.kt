@@ -4,9 +4,9 @@ package com.swszz.kopring.beer.domain
  * 맥주 도메인
  * @author: swszz
  */
-data class Beer(private val type: Type,
-                private val size: Size,
-                private val count: Int = 0) {
+data class Beer(val type: Type,
+                val size: Size,
+                val count: Int = 0) {
     companion object {
         /**
          * 맥주 생성

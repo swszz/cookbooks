@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 class OrderController(val orderUseCase: OrderUseCase) {
 
-    @PostMapping("beer/order")
+    @PostMapping("order")
     fun order(@Validated @RequestBody orderRequest: OrderRequest): OrderResponse {
         println(orderRequest)
         val orderCommand = orderRequest.let {

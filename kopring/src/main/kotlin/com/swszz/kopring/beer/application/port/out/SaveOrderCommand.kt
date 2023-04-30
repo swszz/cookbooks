@@ -5,4 +5,4 @@ import com.swszz.kopring.beer.domain.Beer
 /**
  * @author: swszz
  */
-data class SaveOrderCommand(private val type: Beer.Type, private val size: Beer.Size, private val count: Int)
+data class SaveOrderCommand(val type: Beer.Type, val size: Beer.Size, val count: Int)
