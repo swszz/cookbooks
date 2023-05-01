@@ -5,3 +5,4 @@ package com.swszz.kopring.beer.domain
  * @author: swszz
  */
 data class Order(private val beers: List<Beer>)
+// TODO: private 예약어 제거 

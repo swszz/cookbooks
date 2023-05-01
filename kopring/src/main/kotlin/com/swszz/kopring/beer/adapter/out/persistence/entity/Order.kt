@@ -1,8 +1,13 @@
 package com.swszz.kopring.beer.adapter.out.persistence.entity
 
 import com.swszz.kopring.beer.domain.Beer
+import com.swszz.utils.kotlinEquals
+import com.swszz.utils.kotlinHashCode
+import com.swszz.utils.kotlinToString
+import io.hypersistence.utils.hibernate.type.json.JsonType
 import jakarta.persistence.*
 import org.hibernate.annotations.Comment
+import org.hibernate.annotations.Type
 
 /**
  * 주문 Entity
@@ -28,15 +33,39 @@ class Order(
         @Column(updatable = false, nullable = false)
         private var size: Beer.Size,
         @Column(updatable = false, nullable = false)
-        private var count: Int
+        private var count: Int,
+        @Type(JsonType::class)
+        @Column(updatable = true, nullable = false, columnDefinition = ColumnDefinitions.CLOB)
+        private var options: CustomizedOptions
 
 ) : AbstractAuditingEntity() {
     @Comment("Primary Key")
     @Id
+    @Column(updatable = false, nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private var id: Long? = null
 
     @Comment("주문 고유 키")
     @Column(updatable = false, nullable = false)
     private var key: String? = null
+
+
+    override fun toString() = kotlinToString(
+            properties = toStringProperties,
+            superToString = { super.toString() }
+    )
+
+    override fun equals(other: Any?) = kotlinEquals(other = other, properties = equalsAndHashCodeProperties)
+    override fun hashCode() = kotlinHashCode(properties = equalsAndHashCodeProperties)
+
+    companion object {
+        private val equalsAndHashCodeProperties = arrayOf(Order::id, Order::key)
+        private val toStringProperties = arrayOf(
+                Order::type,
+                Order::size,
+                Order::count,
+                Order::options,
+                Order::key
+        )
+    }
 }
