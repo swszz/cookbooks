@@ -7,5 +7,5 @@ import org.springframework.transaction.annotation.Transactional
  */
 interface OrderBeerUseCase {
     @Transactional
-    fun order(orderBeerCommand: OrderBeerCommand): Boolean
+    fun orderBeer(orderBeerCommand: OrderBeerCommand): Boolean
 }

@@ -17,9 +17,11 @@ import kotlin.reflect.KProperty1
  * @param superEquals lambda for calling super.equals() if required (if used, all classes involved should implement the [SupportsMixedTypeEquality] interface)
  * @param T the type of the receiving class
  */
-inline fun <reified T : Any> T.kotlinEquals(other: Any?,
-                                            properties: Array<out KProperty1<T, Any?>>,
-                                            noinline superEquals: (() -> Boolean)? = null): Boolean {
+inline fun <reified T : Any> T.kotlinEquals(
+    other: Any?,
+    properties: Array<out KProperty1<T, Any?>>,
+    noinline superEquals: (() -> Boolean)? = null,
+): Boolean {
     return when {
         other === this -> true
         other !is T -> false
@@ -44,7 +46,10 @@ inline fun <reified T : Any> T.kotlinEquals(other: Any?,
  * @param superHashCode lambda for calling super.hashCode() if required
  * @param T the type of the receiving class
  */
-inline fun <reified T : Any> T.kotlinHashCode(properties: Array<out KProperty1<T, Any?>>, noinline superHashCode: (() -> Int)? = null): Int {
+inline fun <reified T : Any> T.kotlinHashCode(
+    properties: Array<out KProperty1<T, Any?>>,
+    noinline superHashCode: (() -> Int)? = null,
+): Int {
     val values = Array(properties.size) { i ->
         val property = properties[i].get(this)
         if (property is Array<*>) {
@@ -71,9 +76,11 @@ inline fun <reified T : Any> T.kotlinHashCode(properties: Array<out KProperty1<T
  * @param superToString lambda for calling super.toString() if required
  * @param T the type of the receiving class
  */
-inline fun <reified T : Any> T.kotlinToString(properties: Array<out KProperty1<T, Any?>>,
-                                              omitNulls: Boolean = false,
-                                              noinline superToString: (() -> String)? = null): String {
+inline fun <reified T : Any> T.kotlinToString(
+    properties: Array<out KProperty1<T, Any?>>,
+    omitNulls: Boolean = false,
+    noinline superToString: (() -> String)? = null,
+): String {
 
     val builder = StringBuilder(32).append(T::class.java.simpleName).append("(")
     var nextSeparator = ""

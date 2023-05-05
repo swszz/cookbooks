@@ -1,13 +1,10 @@
 package com.swszz.kopring.pub.adapter.out.persistence.entity
 
-import com.swszz.kopring.pub.domain.Beer
 import com.swszz.utils.kotlinEquals
 import com.swszz.utils.kotlinHashCode
 import com.swszz.utils.kotlinToString
-import io.hypersistence.utils.hibernate.type.json.JsonType
 import jakarta.persistence.*
 import org.hibernate.annotations.Comment
-import org.hibernate.annotations.Type
 
 /**
  * 주문 Entity
@@ -19,26 +16,12 @@ import org.hibernate.annotations.Type
  */
 @Entity
 @Table(
-        indexes = [
-            Index(name = "unq_key", columnList = "key", unique = true),
-            Index(name = "idx_type", columnList = "type", unique = false)
-        ]
+    indexes = [
+        Index(name = "unq_key", columnList = "key", unique = true)
+    ]
 )
 @EntityListeners(OrderEntityListener::class)
-class Order(
-        @Enumerated(EnumType.STRING)
-        @Column(updatable = false, nullable = false)
-        private var type: Beer.Type,
-        @Enumerated(EnumType.STRING)
-        @Column(updatable = false, nullable = false)
-        private var size: Beer.Size,
-        @Column(updatable = false, nullable = false)
-        private var count: Int,
-        @Type(JsonType::class)
-        @Column(updatable = true, nullable = false, columnDefinition = ColumnDefinitions.CLOB)
-        private var options: CustomizedOptions
-
-) : AbstractAuditingEntity() {
+class Order : AbstractAuditingEntity() {
     @Comment("Primary Key")
     @Id
     @Column(updatable = false, nullable = false)
@@ -49,23 +32,24 @@ class Order(
     @Column(updatable = false, nullable = false)
     private var key: String? = null
 
+    @Comment("주문 고유 키")
+    @Enumerated(EnumType.STRING)
+    @Column(updatable = false, nullable = false)
+    private var status: com.swszz.kopring.pub.domain.Order.Status? = com.swszz.kopring.pub.domain.Order.Status.NONE
 
-    override fun toString() = kotlinToString(
-            properties = toStringProperties,
-            superToString = { super.toString() }
-    )
+    /**
+     * public getter 를 사용할 땐, entity가 조회된 후 호출하는 것을 명심
+     */
+    fun getId() = id!!
+    fun getKey() = key!!
+    fun getStatus() = status!!
 
+    override fun toString() = kotlinToString(properties = toStringProperties, superToString = { super.toString() })
     override fun equals(other: Any?) = kotlinEquals(other = other, properties = equalsAndHashCodeProperties)
     override fun hashCode() = kotlinHashCode(properties = equalsAndHashCodeProperties)
 
     companion object {
-        private val equalsAndHashCodeProperties = arrayOf(Order::id, Order::key)
-        private val toStringProperties = arrayOf(
-                Order::type,
-                Order::size,
-                Order::count,
-                Order::options,
-                Order::key
-        )
+        private val equalsAndHashCodeProperties = arrayOf(Order::id)
+        private val toStringProperties = arrayOf(Order::id, Order::key)
     }
 }

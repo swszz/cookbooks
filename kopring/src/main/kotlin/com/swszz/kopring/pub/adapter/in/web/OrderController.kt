@@ -1,12 +1,13 @@
 package com.swszz.kopring.pub.adapter.`in`.web
 
+import com.swszz.kopring.pub.adapter.`in`.web.model.FindOrdersRequest
+import com.swszz.kopring.pub.adapter.`in`.web.model.FindOrdersResponse
 import com.swszz.kopring.pub.adapter.`in`.web.model.OrderBeerRequest
 import com.swszz.kopring.pub.adapter.`in`.web.model.OrderBeerResponse
 import com.swszz.kopring.pub.application.port.`in`.FindOrdersQuery
 import com.swszz.kopring.pub.application.port.`in`.FindOrdersUseCase
 import com.swszz.kopring.pub.application.port.`in`.OrderBeerCommand
 import com.swszz.kopring.pub.application.port.`in`.OrderBeerUseCase
-import com.swszz.kopring.pub.domain.Order
 import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
@@ -17,22 +18,27 @@ import org.springframework.web.bind.annotation.RestController
  * @author: swszz
  */
 @RestController
-class OrderController(val orderBeerUseCase: OrderBeerUseCase, val findOrdersUseCase: FindOrdersUseCase) {
+class OrderController(
+    private val findOrdersUseCase: FindOrdersUseCase,
+    private val orderBeerUseCase: OrderBeerUseCase,
+) {
 
     @PostMapping("order/beer")
-    fun order(@Validated @RequestBody orderBeerRequest: OrderBeerRequest): OrderBeerResponse {
-        val orderBeerCommand = orderBeerRequest.let {
-            println(it.options)
-            OrderBeerCommand(it.type, it.size, it.count, it.options)
+    fun orderBeer(@Validated @RequestBody orderBeerRequest: OrderBeerRequest): OrderBeerResponse {
+        return with(orderBeerRequest) {
+            val command =
+                OrderBeerCommand(type = type, size = size, orderKey = orderKey, count = count, options = options)
+            val ordered = orderBeerUseCase.orderBeer(command)
+            OrderBeerResponse(ordered)
         }
-        val completed: Boolean = orderBeerUseCase.order(orderBeerCommand)
-
-        return OrderBeerResponse(completed)
     }
 
-    // todo 구현체 고도화해야 함
     @GetMapping("orders")
-    fun list(): Int {
-        return findOrdersUseCase.findOrders(FindOrdersQuery(Order.Type.BEER, null))
+    fun findOrders(@RequestBody findOrdersRequest: FindOrdersRequest): FindOrdersResponse {
+        return with(findOrdersRequest) {
+            val query = FindOrdersQuery(key, status)
+            val orders = findOrdersUseCase.findOrders(query)
+            FindOrdersResponse(orders)
+        }
     }
 }

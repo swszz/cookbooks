@@ -30,13 +30,13 @@ abstract class AbstractAuditingEntity {
 
 
     override fun toString() = kotlinToString(
-            properties = toStringProperties
+        properties = toStringProperties
     )
 
     companion object {
         private val toStringProperties = arrayOf(
-                AbstractAuditingEntity::createdDate,
-                AbstractAuditingEntity::updatedDate
+            AbstractAuditingEntity::createdDate,
+            AbstractAuditingEntity::updatedDate
         )
     }
 }

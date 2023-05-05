@@ -10,6 +10,9 @@ import jakarta.persistence.Embeddable
  */
 @Embeddable
 class CustomizedOptions(private val options: MutableSet<String>) {
+
+    fun get() = options
+
     companion object {
         private val equalsAndHashCodeProperties = arrayOf(CustomizedOptions::options)
         private val toStringProperties = arrayOf(CustomizedOptions::options)

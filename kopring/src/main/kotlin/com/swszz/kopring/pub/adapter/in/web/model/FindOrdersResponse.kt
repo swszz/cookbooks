@@ -1,7 +1,8 @@
 package com.swszz.kopring.pub.adapter.`in`.web.model
 
+import com.swszz.kopring.pub.domain.Order
+
 /**
  * @author: swszz
  */
-class FindOrdersResponse {
-}
+data class FindOrdersResponse(val orders: MutableList<Order>)

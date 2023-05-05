@@ -4,18 +4,22 @@ package com.swszz.kopring.pub.domain
  * 맥주 도메인
  * @author: swszz
  */
-data class Beer(val type: Type,
-                val size: Size,
-                val count: Int = 0,
-                val customOptions: MutableSet<String>) : Product() {
+data class Beer(
+    val type: Type,
+    val size: Size,
+    val count: Int = 0,
+    val customOptions: MutableSet<String>,
+) : Item() {
     companion object {
         /**
          * 맥주 생성
          */
-        fun create(type: Type,
-                   size: Size,
-                   count: Int = 0,
-                   customOptions: MutableSet<String> = mutableSetOf()): Beer {
+        fun create(
+            type: Type,
+            size: Size,
+            count: Int = 0,
+            customOptions: MutableSet<String> = mutableSetOf(),
+        ): Beer {
             return Beer(type, size, count, customOptions)
         }
     }
