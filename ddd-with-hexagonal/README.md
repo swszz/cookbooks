@@ -2,7 +2,7 @@
 
 ## 소개
 
-DDD (Domain Driven Development)와 Hexagonal Architecture 를 기반으로 하는 애플리케이션 설계에 대한 샘플 프로젝트
+DDD (Domain Driven Design)와 Hexagonal Architecture 를 기반으로 하는 애플리케이션 설계에 대한 샘플 프로젝트
 
 ## 단어 정리
 
