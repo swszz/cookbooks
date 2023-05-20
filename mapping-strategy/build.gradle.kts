@@ -29,6 +29,9 @@ dependencies {
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.mapstruct:mapstruct:1.5.1.Final")
+    implementation("com.fasterxml.uuid:java-uuid-generator:4.1.1")
+    implementation("com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.9.0")
+
     kapt("org.mapstruct:mapstruct-processor:1.5.1.Final")
     runtimeOnly("com.h2database:h2")
     compileOnly("org.projectlombok:lombok")
