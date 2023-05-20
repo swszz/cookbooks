@@ -16,7 +16,9 @@ class Product(
     @EmbeddedId
     @Column(insertable = false, updatable = false)
     var id: ProductId? = null,
-) : AbstractAuditingEntity() {
+    @OneToOne(mappedBy = "product")
+    var productDetail: ProductDetail? = null,
+    ) : AbstractAuditingEntity() {
 
     override fun toString() = kotlinToString(properties = toStringProperties, superToString = { super.toString() })
     override fun equals(other: Any?) = kotlinEquals(other = other, properties = equalsAndHashCodeProperties)

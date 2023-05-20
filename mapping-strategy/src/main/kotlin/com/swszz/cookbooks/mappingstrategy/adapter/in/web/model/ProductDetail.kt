@@ -6,9 +6,10 @@ import java.util.*
 /**
  * @author: swszz
  */
-data class Product(
+data class ProductDetail(
     val id: UUID,
-    val productDetail: ProductDetail,
+    val price: Long,
     val createdAt: LocalDateTime,
     val updatedAt: LocalDateTime,
-)
+) {
+}

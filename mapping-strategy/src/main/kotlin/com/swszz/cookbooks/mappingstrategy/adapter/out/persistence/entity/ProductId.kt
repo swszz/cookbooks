@@ -15,17 +15,17 @@ private constructor(val id: UUID) : AbstractIdWithUUID(id) {
 
         private val equalsAndHashCodeProperties = arrayOf(ProductId::id)
         private val toStringProperties = arrayOf(ProductId::id)
-        fun of(): AbstractIdWithUUID {
+        fun of(): ProductId {
             return ProductId(Generators.timeBasedGenerator().generate())
         }
 
-        fun of(uuid: String? = null): AbstractIdWithUUID {
+        fun of(uuid: String? = null): ProductId {
             return uuid?.let {
                 ProductId(UUID.fromString(uuid))
             } ?: throw IllegalArgumentException()
         }
 
-        fun of(uuid: UUID? = null): AbstractIdWithUUID {
+        fun of(uuid: UUID? = null): ProductId {
             return uuid?.let {
                 ProductId(uuid)
             } ?: throw IllegalArgumentException()

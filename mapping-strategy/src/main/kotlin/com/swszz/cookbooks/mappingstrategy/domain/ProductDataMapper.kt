@@ -1,7 +1,7 @@
 package com.swszz.cookbooks.mappingstrategy.domain
 
-import com.swszz.cookbooks.mappingstrategy.adapter.out.persistence.model.ProductResult
-import com.swszz.cookbooks.mappingstrategy.domain.model.ProductData
+import com.swszz.cookbooks.mappingstrategy.adapter.out.persistence.model.ProductData
+import com.swszz.cookbooks.mappingstrategy.domain.model.Product
 import org.mapstruct.Mapper
 import org.mapstruct.Mapping
 import org.mapstruct.Mappings
@@ -13,12 +13,8 @@ import org.mapstruct.factory.Mappers
 
 @Mapper
 interface ProductDataMapper {
-    @Mappings(
-        Mapping(source = "result.id", target = "id"),
-        Mapping(source = "result.createdAt", target = "createdAt"),
-        Mapping(source = "result.updatedAt", target = "updatedAt")
-    )
-    fun toProductData(result: ProductResult): ProductData
+
+    fun toProduct(productData: ProductData): Product
 
 
     companion object {

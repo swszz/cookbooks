@@ -1,4 +1,4 @@
-package com.swszz.cookbooks.mappingstrategy.adapter.out.persistence.model
+package com.swszz.cookbooks.mappingstrategy.domain.model
 
 import java.time.LocalDateTime
 import java.util.*
@@ -6,8 +6,9 @@ import java.util.*
 /**
  * @author: swszz
  */
-data class ProductResult(
+data class Product(
     val id: UUID,
+    val productDetail: ProductDetail,
     val createdAt: LocalDateTime,
     val updatedAt: LocalDateTime,
 )
