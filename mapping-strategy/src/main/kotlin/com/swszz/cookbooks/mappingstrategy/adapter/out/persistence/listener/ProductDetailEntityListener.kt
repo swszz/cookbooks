@@ -2,7 +2,6 @@ package com.swszz.cookbooks.mappingstrategy.adapter.out.persistence.listener
 
 import com.swszz.cookbooks.mappingstrategy.adapter.out.persistence.entity.Product
 import com.swszz.cookbooks.mappingstrategy.adapter.out.persistence.entity.ProductDetailId
-import com.swszz.cookbooks.mappingstrategy.adapter.out.persistence.entity.ProductId
 import jakarta.persistence.PrePersist
 import kotlin.reflect.KMutableProperty
 import kotlin.reflect.full.memberProperties

@@ -1,8 +1,6 @@
 package com.swszz.cookbooks.mappingstrategy.adapter.out.persistence.listener
 
 import com.swszz.cookbooks.mappingstrategy.adapter.out.persistence.entity.AbstractAuditingEntity
-import com.swszz.cookbooks.mappingstrategy.adapter.out.persistence.entity.AbstractIdWithUUID
-import jakarta.persistence.PrePersist
 import jakarta.persistence.PreRemove
 import java.time.LocalDateTime
 import kotlin.reflect.KMutableProperty

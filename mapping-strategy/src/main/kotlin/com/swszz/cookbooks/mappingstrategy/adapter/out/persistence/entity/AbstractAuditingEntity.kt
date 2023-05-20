@@ -20,22 +20,22 @@ import java.time.LocalDateTime
  */
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener::class)
-abstract class AbstractAuditingEntity {
-
-    @Comment("생성 시간")
-    @Column(updatable = false, nullable = false, name = ColumnNames.CREATED_AT)
-    @CreationTimestamp
-    private var createdAt: LocalDateTime? = null
+abstract class AbstractAuditingEntity(
+    @Comment("생성 시간") @Column(
+        updatable = false,
+        nullable = false,
+        name = ColumnNames.CREATED_AT
+    ) @CreationTimestamp var createdAt: LocalDateTime? = null,
 
     @Comment("마지막 업데이트 시간")
     @Column(updatable = true, nullable = false, name = ColumnNames.UPDATED_AT)
     @UpdateTimestamp
-    private var updatedAt: LocalDateTime? = null
+    var updatedAt: LocalDateTime? = null,
 
     @Comment("삭제 시간")
     @Column(updatable = true, nullable = true, name = ColumnNames.DELETED_AT)
-    private var deletedAt: LocalDateTime? = null
-
+    var deletedAt: LocalDateTime? = null,
+) {
     override fun toString() = kotlinToString(
         properties = toStringProperties
     )

@@ -1,6 +1,10 @@
 package com.swszz.cookbooks.mappingstrategy.application.`in`
 
+import java.util.*
+
 /**
  * @author: swszz
  */
-abstract class AbstractProductQuery
+interface ProductIdQuery {
+    fun getId(): UUID
+}
