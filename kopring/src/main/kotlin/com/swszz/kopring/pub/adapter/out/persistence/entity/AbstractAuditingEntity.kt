@@ -21,12 +21,12 @@ abstract class AbstractAuditingEntity {
     @Comment("생성 시간")
     @Column(updatable = false, nullable = false)
     @CreationTimestamp
-    private var createdDate: LocalDateTime? = null
+    private var createdAt: LocalDateTime? = null
 
     @Comment("마지막 업데이트 시간")
     @Column(updatable = true, nullable = false)
     @UpdateTimestamp
-    private var updatedDate: LocalDateTime? = null
+    private var updatedAt: LocalDateTime? = null
 
 
     override fun toString() = kotlinToString(
@@ -35,8 +35,8 @@ abstract class AbstractAuditingEntity {
 
     companion object {
         private val toStringProperties = arrayOf(
-            AbstractAuditingEntity::createdDate,
-            AbstractAuditingEntity::updatedDate
+            AbstractAuditingEntity::createdAt,
+            AbstractAuditingEntity::updatedAt
         )
     }
 }
