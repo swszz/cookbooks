@@ -1,7 +1,6 @@
 package com.swszz.cookbooks.mappingstrategy.adapter.out.persistence.model
 
 import com.swszz.cookbooks.mappingstrategy.domain.model.ProductDetail
-import java.sql.ResultSet
 import java.time.LocalDateTime
 import java.util.*
 

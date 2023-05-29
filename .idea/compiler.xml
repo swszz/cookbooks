@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Gradle Imported" enabled="true">
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-configuration-processor/3.1.0/6364a0d4d16f77885a86a51906d68107674eebbd/spring-boot-configuration-processor-3.1.0.jar" />
+        </processorPath>
+        <module name="static-entity-accessor.main" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="kafka-on-transaction" target="17" />
+      <module name="kafka-on-transaction.main" target="17" />
+      <module name="kafka-on-transaction.test" target="17" />
+      <module name="springtransaction" target="17" />
+      <module name="springtransaction.main" target="17" />
+      <module name="springtransaction.test" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

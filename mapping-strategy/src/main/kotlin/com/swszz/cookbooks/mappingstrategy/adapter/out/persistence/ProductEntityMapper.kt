@@ -1,13 +1,11 @@
 package com.swszz.cookbooks.mappingstrategy.adapter.out.persistence
 
 import com.swszz.cookbooks.mappingstrategy.adapter.out.persistence.entity.Product
-import com.swszz.cookbooks.mappingstrategy.adapter.out.persistence.entity.ProductDetailId
 import com.swszz.cookbooks.mappingstrategy.adapter.out.persistence.model.ProductData
 import org.mapstruct.Mapper
 import org.mapstruct.Mapping
 import org.mapstruct.Mappings
 import org.mapstruct.factory.Mappers
-import java.util.*
 
 /**
  * @author: swszz
@@ -26,7 +24,6 @@ interface ProductEntityMapper {
         Mapping(source = "product.productDetail.id.id", target = "productDetail.id"),
     )
     fun toProductData(product: Product): ProductData
-
 
     companion object {
         val INSTANCE: ProductEntityMapper = Mappers.getMapper(ProductEntityMapper::class.java)

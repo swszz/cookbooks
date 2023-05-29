@@ -9,7 +9,7 @@ import jakarta.annotation.Nonnull
 data class OrderBeerRequest(
     @Nonnull val type: Beer.Type,
     @Nonnull val size: Beer.Size,
-    val orderKey : String?,
+    val orderKey: String?,
     val count: Int = 0,
     val options: MutableSet<String> = mutableSetOf(),
 )

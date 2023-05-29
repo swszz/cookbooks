@@ -7,8 +7,8 @@ import org.junit.jupiter.api.Test
  */
 class KotlinAbstractionTests {
     @Test
-    fun `상속과 인터페이스`(){
-        val cat : Cat = Cat("miya")
+    fun `상속과 인터페이스`() {
+        val cat: Cat = Cat("miya")
 
         cat.bark()
         cat.move()
@@ -20,11 +20,12 @@ class KotlinAbstractionTests {
 }
 
 interface Barkable {
-    fun bark() : Unit
+    fun bark(): Unit
 }
-abstract class Animal(val sound : String) : Barkable{
+
+abstract class Animal(val sound: String) : Barkable {
     // open 예약어를 사용해야 상속 가능
-    open fun move(){
+    open fun move() {
         println("${sound}! move!")
     }
 }

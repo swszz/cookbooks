@@ -18,7 +18,7 @@ class Product(
     var id: ProductId? = null,
     @OneToOne(mappedBy = "product")
     var productDetail: ProductDetail? = null,
-    ) : AbstractAuditingEntity() {
+) : AbstractAuditingEntity() {
 
     override fun toString() = kotlinToString(properties = toStringProperties, superToString = { super.toString() })
     override fun equals(other: Any?) = kotlinEquals(other = other, properties = equalsAndHashCodeProperties)

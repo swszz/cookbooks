@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/ddd-with-hexagonal" />
+    <file type="web" url="file://$PROJECT_DIR$/kafka-on-transaction" />
+    <file type="web" url="file://$PROJECT_DIR$/kopring" />
+    <file type="web" url="file://$PROJECT_DIR$/kotlin" />
+    <file type="web" url="file://$PROJECT_DIR$/log-aspect" />
+    <file type="web" url="file://$PROJECT_DIR$/mapping-strategy" />
+    <file type="web" url="file://$PROJECT_DIR$/reactive-feign" />
+    <file type="web" url="file://$PROJECT_DIR$/springtransaction" />
+    <file type="web" url="file://$PROJECT_DIR$/static-entity-accessor" />
+    <file type="web" url="file://$PROJECT_DIR$/tune-jpa-query" />
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_20" project-jdk-name="corretto-17" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="jpab" />
+  </component>
+</project>

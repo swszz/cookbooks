@@ -1,7 +1,5 @@
 package com.swszz.cookbooks.mappingstrategy.adapter.out.persistence.model
 
-import java.math.BigDecimal
-import java.sql.ResultSet
 import java.time.LocalDateTime
 import java.util.*
 

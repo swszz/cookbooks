@@ -1,14 +1,7 @@
 package com.swszz.cookbooks.mappingstrategy.adapter.out.persistence.entity
 
 import com.swszz.cookbooks.mappingstrategy.adapter.out.persistence.listener.ProductDetailEntityListener
-import jakarta.persistence.CascadeType
-import jakarta.persistence.Column
-import jakarta.persistence.EmbeddedId
-import jakarta.persistence.Entity
-import jakarta.persistence.EntityListeners
-import jakarta.persistence.JoinColumn
-import jakarta.persistence.OneToMany
-import jakarta.persistence.OneToOne
+import jakarta.persistence.*
 
 /**
  * @author: swszz

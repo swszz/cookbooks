@@ -1,8 +1,9 @@
 package com.swszz.cookbooks.kotlin
 
-import kotlinx.coroutines.*
+import kotlinx.coroutines.async
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.runBlocking
 import org.junit.jupiter.api.Test
-import kotlin.coroutines.CoroutineContext
 
 /**
  * @author: swszz
@@ -19,22 +20,22 @@ class KotlinCoroutineTests {
 
 
     @Test
-    fun 코루틴(){
+    fun 코루틴() {
         runBlocking {
-            val a = async {returnA()}
-            val b = async {returnB()}
+            val a = async { returnA() }
+            val b = async { returnB() }
 
             println(a.await())
             println(b.await())
-       }
+        }
     }
 
-    suspend fun returnA() : String{
+    suspend fun returnA(): String {
         delay(1000)
         return "A"
     }
 
-    suspend fun returnB() : String{
+    suspend fun returnB(): String {
         delay(1000)
         return "B"
     }
