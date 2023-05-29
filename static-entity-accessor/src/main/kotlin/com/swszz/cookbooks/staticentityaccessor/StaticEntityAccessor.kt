@@ -5,6 +5,7 @@ import org.springframework.context.ApplicationContextAware
 import org.springframework.stereotype.Component
 
 /**
+ * ApplicationContextAware를 상속 받아, 별도 의존성 주입 없이 어플리케이션 어디서나 데이터를 참조할 수 있는 클래스
  * @author: swszz
  */
 

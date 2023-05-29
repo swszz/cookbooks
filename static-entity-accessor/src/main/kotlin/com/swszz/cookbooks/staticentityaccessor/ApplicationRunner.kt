@@ -4,6 +4,7 @@ import org.springframework.boot.CommandLineRunner
 import org.springframework.stereotype.Component
 
 /**
+ * 테스트 데이터 생성
  * @author: swszz
  */
 
