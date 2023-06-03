@@ -8,6 +8,7 @@
     <file type="web" url="file://$PROJECT_DIR$/kotlin" />
     <file type="web" url="file://$PROJECT_DIR$/log-aspect" />
     <file type="web" url="file://$PROJECT_DIR$/mapping-strategy" />
+    <file type="web" url="file://$PROJECT_DIR$/meeting" />
     <file type="web" url="file://$PROJECT_DIR$/reactive-feign" />
     <file type="web" url="file://$PROJECT_DIR$/springtransaction" />
     <file type="web" url="file://$PROJECT_DIR$/static-entity-accessor" />

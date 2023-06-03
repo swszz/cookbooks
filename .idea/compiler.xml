@@ -7,7 +7,7 @@
         <processorPath useClasspath="false">
           <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-configuration-processor/3.1.0/6364a0d4d16f77885a86a51906d68107674eebbd/spring-boot-configuration-processor-3.1.0.jar" />
         </processorPath>
-        <module name="static-entity-accessor.main" />
+        <module name="meeting.main" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
