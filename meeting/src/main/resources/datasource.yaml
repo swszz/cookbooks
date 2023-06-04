@@ -8,7 +8,7 @@ spring:
     open-in-view: false
     properties:
       hibernate:
-        show_sql: true
+        show_sql: false
         globally_quoted_identifiers: true
   h2:
     console:

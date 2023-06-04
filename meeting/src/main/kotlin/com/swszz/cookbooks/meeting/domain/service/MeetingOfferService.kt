@@ -10,7 +10,8 @@ import org.springframework.stereotype.Service
 @Service
 class MeetingOfferService {
 
-    fun registerMeetingOffer(openingId: Int, timeSlot: TimeSlot) {
+    fun registerMeetingOffer(openingId: Int,
+                             timeSlot: TimeSlot) {
 
     }
 }

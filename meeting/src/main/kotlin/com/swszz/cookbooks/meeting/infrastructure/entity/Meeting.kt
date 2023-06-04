@@ -9,7 +9,6 @@ import org.hibernate.type.SqlTypes
  */
 @Entity
 class Meeting(
-    @Column(name = "meeting_timeslot_id", nullable = false, updatable = false) val meetingTimeslotId: Long,
     @Column(name = "memo", nullable = true) var memo: String? = null,
     @Column(name = "address", length = 500, nullable = true) var address: String? = null,
     @Column(name = "address_category", nullable = false, updatable = false) val addressCategory: String,
