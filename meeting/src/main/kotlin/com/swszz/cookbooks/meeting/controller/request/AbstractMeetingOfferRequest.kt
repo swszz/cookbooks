@@ -1,6 +1,5 @@
 package com.swszz.cookbooks.meeting.controller.request
 
-import com.swszz.cookbooks.meeting.infrastructure.entity.relation.MeetingOrganizerUsers
 import com.swszz.cookbooks.meeting.struct.Attachment
 import com.swszz.cookbooks.meeting.struct.Mail
 import io.swagger.v3.oas.annotations.media.Schema
@@ -9,6 +8,7 @@ import io.swagger.v3.oas.annotations.media.Schema
  * @author: swszz
  */
 abstract class AbstractMeetingOfferRequest(
+    @Schema(description = "면접 타입") open val meetingType: String,
     @Schema(description = "워크스페이스(그룹) 고유 키") open val workspaceId: Long,
     @Schema(description = "공고 고유 키") open val openingId: Long,
     @Schema(description = "미팅 생성 유저") open val organizerUserId: Long,

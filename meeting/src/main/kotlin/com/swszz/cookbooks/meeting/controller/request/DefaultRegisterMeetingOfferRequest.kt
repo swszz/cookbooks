@@ -10,6 +10,7 @@ import io.swagger.v3.oas.annotations.media.Schema
  */
 @Schema(description = "면접 요청")
 data class DefaultRegisterMeetingOfferRequest(
+    @Schema(description = "면접 타입") override val meetingType: String,
     @Schema(description = "워크스페이스(그룹) 고유 키") override val workspaceId: Long,
     @Schema(description = "공고 고유 키") override val openingId: Long,
     @Schema(description = "면접 생성 유저") override val organizerUserId: Long,
@@ -20,6 +21,7 @@ data class DefaultRegisterMeetingOfferRequest(
     @Schema(description = "추가 정보") override val attachment: Attachment = Attachment(),
     @Schema(description = "면접 시작 & 종료 시간 모음") val timeSlots: Set<TimeSlot> = emptySet(),
 ) : AbstractMeetingOfferRequest(
+    meetingType,
     workspaceId,
     openingId,
     organizerUserId,

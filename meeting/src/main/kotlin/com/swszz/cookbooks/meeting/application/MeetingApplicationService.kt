@@ -1,6 +1,7 @@
 package com.swszz.cookbooks.meeting.application
 
 import com.swszz.cookbooks.meeting.controller.request.DirectRegisterMeetingOfferRequest
+import com.swszz.cookbooks.meeting.domain.model.*
 import com.swszz.cookbooks.meeting.infrastructure.entity.Meeting
 import com.swszz.cookbooks.meeting.infrastructure.entity.MeetingOffer
 import com.swszz.cookbooks.meeting.infrastructure.entity.MeetingTimeSlot
@@ -28,6 +29,30 @@ class MeetingApplicationService(
     private val meetingRecruiterUsersJpaRepository: MeetingRecruiterUsersJpaRepository,
     private val meetingApplicantsJpaRepository: MeetingApplicantsJpaRepository,
 ) {
+
+    @Transactional
+    fun testForDomainModel(directRegisterMeetingOfferRequest: DirectRegisterMeetingOfferRequest) {
+        // 미팅 도메인
+        // TODO: 미팅 생성 도메인은 별도로 시도할 필요가 있음
+        val applicants: Set<Applicant> = directRegisterMeetingOfferRequest.applicantsIds.toApplicants()
+        val recruiters: Set<Recruiter> = directRegisterMeetingOfferRequest.recruiterIds.toRecruiters()
+        val organizer: Organizer = Organizer.of(directRegisterMeetingOfferRequest.organizerUserId)
+        val location: Location = Location.of(
+            address = directRegisterMeetingOfferRequest.attachment.location.address,
+            category = LocationCategory.valueOf(directRegisterMeetingOfferRequest.attachment.location.category)
+        )
+        val type: MeetingType = MeetingType.valueOf(directRegisterMeetingOfferRequest.meetingType)
+        val meeting: com.swszz.cookbooks.meeting.domain.model.Meeting =
+            com.swszz.cookbooks.meeting.domain.model.Meeting.of(
+                type = type,
+                status = MeetingStatus.CREATE,
+                memo = directRegisterMeetingOfferRequest.attachment.memo,
+                location = location,
+                applicants = applicants,
+                recruiters = recruiters,
+                organizer = organizer
+            )
+    }
 
     @Transactional
     fun sendMeetingOfferDirectly(directRegisterMeetingOfferRequest: DirectRegisterMeetingOfferRequest) {
@@ -90,7 +115,7 @@ class MeetingApplicationService(
             })
         // 면접 생성 이벤트 발행
 
-        
+
         // 시간 변경은 여기만 처리하면 됨...
         // 미팅 시간 연결
         val meetingTimeSlot: MeetingTimeSlot = this.meetingTimeSlotRepository.save(

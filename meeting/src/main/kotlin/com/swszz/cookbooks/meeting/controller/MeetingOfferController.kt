@@ -21,11 +21,11 @@ class MeetingOfferController(
 
     @PostMapping("direct")
     fun directRegisterMeetingOffer(@Valid @RequestBody directRegisterMeetingOfferRequest: DirectRegisterMeetingOfferRequest) {
-        meetingApplicationService.sendMeetingOfferDirectly(directRegisterMeetingOfferRequest)
+        meetingApplicationService.testForDomainModel(directRegisterMeetingOfferRequest)
     }
 
     @PostMapping
     fun registerMeetingOffer(@Valid @RequestBody defaultRegisterMeetingOfferRequest: DefaultRegisterMeetingOfferRequest) {
-        print(defaultRegisterMeetingOfferRequest)
+
     }
 }

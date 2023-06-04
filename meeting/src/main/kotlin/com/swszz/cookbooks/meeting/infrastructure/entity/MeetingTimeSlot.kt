@@ -3,7 +3,6 @@ package com.swszz.cookbooks.meeting.infrastructure.entity
 import jakarta.persistence.*
 import org.hibernate.annotations.JdbcTypeCode
 import org.hibernate.type.SqlTypes
-import java.time.ZonedDateTime
 
 /**
  * @author: swszz

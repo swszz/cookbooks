@@ -3,25 +3,38 @@ package com.swszz.cookbooks.meeting.domain.model
 /**
  * @author: swszz
  */
-class Meeting private constructor(
-    val type: Type,
+data class Meeting(
+    val type: MeetingType,
+    val status: MeetingStatus,
+    val memo: String?,
+    val location: Location,
+    val applicants: Set<Applicant>,
+    val recruiters: Set<Recruiter>,
+    val organizer: Organizer,
 ) {
-
-    companion object {
-        fun initIndividualMeeting(): Meeting {
-            return init(Type.INDIVIDUAL)
-        }
-
-        fun initGroupMeeting(): Meeting {
-            return init(Type.INDIVIDUAL)
-        }
-
-        private fun init(type: Type): Meeting {
-            return Meeting(type)
-        }
+    init {
+        type.checkApplicants(applicants)
     }
 
-    enum class Type {
-        GROUP, INDIVIDUAL
+    companion object {
+        fun of(
+            type: MeetingType,
+            status: MeetingStatus,
+            memo: String? = null,
+            location: Location,
+            applicants: Set<Applicant>,
+            recruiters: Set<Recruiter>,
+            organizer: Organizer,
+        ): Meeting {
+            return Meeting(
+                type = type,
+                status = status,
+                memo = memo,
+                location = location,
+                applicants = applicants,
+                recruiters = recruiters,
+                organizer = organizer
+            )
+        }
     }
 }

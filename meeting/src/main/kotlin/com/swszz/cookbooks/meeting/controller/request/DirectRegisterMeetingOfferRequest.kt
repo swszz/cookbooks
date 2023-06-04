@@ -11,6 +11,7 @@ import io.swagger.v3.oas.annotations.media.Schema
 
 @Schema(description = "면접 직접 등록")
 data class DirectRegisterMeetingOfferRequest(
+    @Schema(description = "면접 타입") override val meetingType: String,
     @Schema(description = "워크스페이스(그룹) 고유 키") override val workspaceId: Long,
     @Schema(description = "공고 고유 키") override val openingId: Long,
     @Schema(description = "면접 생성 유저") override val organizerUserId: Long,
@@ -22,12 +23,5 @@ data class DirectRegisterMeetingOfferRequest(
     @Schema(description = "면접 시작 & 종료 시간") val timeSlot: TimeSlot,
     @Schema(description = "메일 발송 여부") val enabledSendingMail: Boolean,
 ) : AbstractMeetingOfferRequest(
-    workspaceId,
-    openingId,
-    organizerUserId,
-    applicantsIds,
-    recruiterIds,
-    time,
-    content,
-    attachment
+    meetingType, workspaceId, openingId, organizerUserId, applicantsIds, recruiterIds, time, content, attachment
 )
