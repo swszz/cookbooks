@@ -23,5 +23,13 @@ data class DirectRegisterMeetingOfferRequest(
     @Schema(description = "면접 시작 & 종료 시간") val timeSlot: TimeSlot,
     @Schema(description = "메일 발송 여부") val enabledSendingMail: Boolean,
 ) : AbstractMeetingOfferRequest(
-    meetingType, workspaceId, openingId, organizerUserId, applicantsIds, recruiterIds, time, content, attachment
+    meetingType,
+    workspaceId,
+    openingId,
+    organizerUserId,
+    applicantsIds,
+    recruiterIds,
+    time,
+    content,
+    attachment,
 )

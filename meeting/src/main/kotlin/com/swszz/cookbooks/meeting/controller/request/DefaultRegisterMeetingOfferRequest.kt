@@ -29,5 +29,5 @@ data class DefaultRegisterMeetingOfferRequest(
     recruiterIds,
     time,
     content,
-    attachment
+    attachment,
 )
